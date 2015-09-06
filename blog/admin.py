@@ -21,8 +21,8 @@ class PostAdmin(admin.ModelAdmin):
     inlines = [Imageline,]
     search_fields = ['name', 'slug']
     list_filter = ('category', 'published')
-    class Media:
-    		js = ('/static/js/nicEdit.js', '/static/js/textarea_content.js')
+    # class Media:
+    # 		js = ('/static/js/nicEdit.js', '/static/js/textarea_content.js')
 		
 
     def get_queryset(self, request):
