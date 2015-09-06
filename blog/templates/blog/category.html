@@ -14,9 +14,32 @@
             <div class="col-md-12 col-sm-12">
               <h3>{{ category.name }}</h3>
               <br><br>
+
             </div>
+
+            {% if sub_categoties %}
+
+          
+            <h4>Подкатегории:</h4>
+            <br>
+            {% for category in sub_categoties %}
+            
+            <div class="col-md-12 col-sm-12">
+               <a href="{% url "blog.views.category_detail" url=category.slug %}"><h4>{{ category.name }}</h4></a>
+              <br><br>
+            </div>
+            
+            {% endfor %}     
+{% endif %}
           </div>
           <hr>
+
+
+  
+
+         
+
+
           
           {% for post in posts %}
          
