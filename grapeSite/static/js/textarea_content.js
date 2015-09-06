@@ -1,0 +1,1 @@
+bkLib.onDomLoaded(nicEditors.allTextAreas)

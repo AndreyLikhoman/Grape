@@ -1,5 +1,9 @@
 from django.conf.urls import include, url
 from django.contrib import admin
+import os
+from django.conf import settings
+from django.conf.urls.static import static
+PROJECT_DIR = os.path.dirname(__file__)
 
 urlpatterns = [
     # Examples:

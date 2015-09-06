@@ -14,8 +14,13 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
 
+IMAGE_UPLOAD_DIR = 'img'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -101,6 +106,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "grapeSite","media")
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "grapeSite","static"),
+)
+
 
 
 import dj_database_url
@@ -110,7 +125,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']
 
-STATIC_ROOT = 'staticfiles'
+
 
 DEBUG = False
 
