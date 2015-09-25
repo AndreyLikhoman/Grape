@@ -1,5 +1,6 @@
 {% load compile_static %}
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -15,7 +16,10 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
     <link href="{% static "css/styles.css" %}" rel="stylesheet">
-    <link href="{% static "lessc/Less.less"|compile  %}" rel="stylesheet" >
+     
+
+    <link href="{% static "lessc/Less.less"|compile %}" rel="stylesheet" >
+     
 	</head>
 	<body>
 <header class="navbar navbar-default navbar-fixed-top" role="banner">

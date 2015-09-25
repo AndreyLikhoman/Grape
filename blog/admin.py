@@ -57,10 +57,17 @@ class TagsAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 
     
-        
+class GaleryAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+    list_display = ('name', 'slug', 'published', 'ordering', 'parent')
+    list_editable = ( 'slug', 'published', 'ordering')
+    list_filter = ('parent', 'published')
+    inlines = [Imageline,]
+
 
 
    
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Tags, TagsAdmin)
+admin.site.register(Galery, GaleryAdmin)
