@@ -12,6 +12,9 @@ class Videoline(admin.StackedInline):
     model = Video
     extra = 1
 
+class Galeryline(admin.StackedInline):
+    model = Galery
+    extra = 1
 
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
@@ -23,7 +26,7 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
     list_display = ('name', 'slug', 'show', 'published', 'ordering')
     list_editable = ( 'slug', 'show', 'published', 'ordering')
-    inlines = [Imageline, Videoline,]
+    inlines = [Imageline, Videoline, Galeryline ]
     search_fields = ['name', 'slug']
     list_filter = ('category', 'published')
     # class Media:
