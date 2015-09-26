@@ -221,7 +221,8 @@ class Media(models.Model):
 
 class Video(models.Model):
     name = models.CharField(max_length=250, blank=True, default="", verbose_name="Название")
-    video = models.FileField(upload_to=make_upload_path, blank=True, default="",  verbose_name="Изображение")
+    video = models.FileField(upload_to=make_upload_path, blank=True, default="",  verbose_name="Видео")
+    preview = models.ImageField(upload_to=make_upload_path, blank=True, default="",  verbose_name="Изображение видео")
     post = models.ForeignKey(Post, blank=True, related_name="c5", null=True, verbose_name="Пост")
     media = models.ForeignKey(Media, blank=True, related_name="c6", null=True, verbose_name="Галерея")
 
