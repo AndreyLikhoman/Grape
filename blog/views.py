@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post, Category, Tags
+from .models import Post, Category, Tags , Image
 # Create your views here.
 
 def categories_list():
@@ -13,7 +13,8 @@ def home_page(request):
 def post_detail(request, url):
     # post = get_object_or_404(Post, slug=url)
     post = Post.objects.filter(slug = url)
-    return render(request, 'blog/post.html', {'post': post[0], 'categories': categories_list()})
+    images = Image.objects.filter(post = post[0])
+    return render(request, 'blog/post.html', {'post': post[0], 'categories': categories_list(), 'images': images})
 
 def category_detail(request, url):
     # post = get_object_or_404(Post, slug=url)

@@ -8,6 +8,11 @@ class Imageline(admin.StackedInline):
     model = Image
     extra = 1
 
+class Videoline(admin.StackedInline):
+    model = Video
+    extra = 1
+
+
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
     list_display = ('name', 'slug', 'published', 'ordering', 'parent')
@@ -18,7 +23,7 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
     list_display = ('name', 'slug', 'show', 'published', 'ordering')
     list_editable = ( 'slug', 'show', 'published', 'ordering')
-    inlines = [Imageline,]
+    inlines = [Imageline, Videoline,]
     search_fields = ['name', 'slug']
     list_filter = ('category', 'published')
     # class Media:
@@ -65,9 +70,16 @@ class GaleryAdmin(admin.ModelAdmin):
     inlines = [Imageline,]
 
 
+class MediaAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+    list_display = ('name', 'slug', 'published', 'ordering', 'parent')
+    list_editable = ( 'slug', 'published', 'ordering')
+    list_filter = ('parent', 'published')
+    inlines = [Videoline,]
 
    
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Tags, TagsAdmin)
 admin.site.register(Galery, GaleryAdmin)
+admin.site.register(Media, MediaAdmin)

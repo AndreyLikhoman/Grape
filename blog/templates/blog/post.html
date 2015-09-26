@@ -41,7 +41,9 @@
         </div>
       </div>
                                                                                        
-	                                                
+	       {% for image in images %}
+      <img style="width: 100px" src="/media/{{ image.image }}">
+  {% endfor%}                                           
                                                       
    	</div><!--/col-12-->
   </div>
