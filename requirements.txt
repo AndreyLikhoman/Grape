@@ -4,3 +4,4 @@ gunicorn==19.3.0
 whitenoise==2.0.3
 psycopg2==2.5.4
 Pillow==2.9.0
+django-static-precompiler==1.0.1
