@@ -1,4 +1,3 @@
-{% load less %}
 {% load staticfiles %}
 
 <!DOCTYPE html>
@@ -16,7 +15,7 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
     <link href="{% static "css/styles.css" %}" rel="stylesheet">
-    <link href="{% less "lessc/Less.less" %}"  />
+    <link href="{% static "lessc/Less.less" %}"  />
     <link href="{% static "js/video-js/video-js.css" %}" rel="stylesheet" type="text/css">
   <!-- video.js must be in the <head> for older IEs to work. -->
     <script src="{% static "js/video-js/video.js" %}"></script>
