@@ -16,7 +16,7 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
     <link href="{% static "css/styles.css" %}" rel="stylesheet">
-    <link href="{% static "lessc/Less.less" %}" rel="stylesheet" />
+    <link href="{% static "lessc/Less.less"|compile %}" rel="stylesheet" />
     <link href="{% static "js/video-js/video-js.css" %}" rel="stylesheet" type="text/css">
   <!-- video.js must be in the <head> for older IEs to work. -->
     <script src="{% static "js/video-js/video.js" %}"></script>
