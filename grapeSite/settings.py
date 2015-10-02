@@ -111,7 +111,7 @@ STATIC_URL = '/static/'
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 PROJECT_DIR = os.path.join(PROJECT_ROOT,'../blog')
 STATIC_ROOT= os.path.join(PROJECT_DIR,'staticfiles/')
-COMPRESS_ROOT = os.path.join(BASE_DIR, "grapeSite","static")
+
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "grapeSite","media")
@@ -124,7 +124,6 @@ STATICFILES_DIRS = (
 
 STATICFILES_FINDERS = (
     'static_precompiler.finders.StaticPrecompilerFinder',
-    'compressor.finders.CompressorFinder',
 )
 
 STATIC_PRECOMPILER_COMPILERS = (
