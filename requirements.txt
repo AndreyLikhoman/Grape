@@ -6,3 +6,4 @@ psycopg2==2.5.4
 Pillow==2.9.0
 django-static-precompiler==1.0.1
 npm==0.1.1
+django_compressor ==1.5
