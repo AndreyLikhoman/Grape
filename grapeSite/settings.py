@@ -55,6 +55,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'static_precompiler.finders.StaticPrecompilerFinder',
 )
 
 
@@ -108,34 +109,26 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-PROJECT_DIR = os.path.join(PROJECT_ROOT,'../blog')
-STATIC_ROOT= os.path.join(PROJECT_DIR,'staticfiles/')
+STATIC_ROOT = 'staticfiles'
 
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "grapeSite","media")
 
-
-
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "grapeSite","static"),
 )
 
-STATICFILES_FINDERS = (
-    'static_precompiler.finders.StaticPrecompilerFinder',
-)
 
 STATIC_PRECOMPILER_COMPILERS = (
-    'static_precompiler.compilers.LESS',
+    'static_precompiler.compilers.CoffeeScript',
+    'static_precompiler.compilers.Babel',
+    'static_precompiler.compilers.SASS',
+    'static_precompiler.compilers.SCSS',
+    ('static_precompiler.compilers.LESS', {"executable": os.path.join(BASE_DIR, "node_modules", "less", "bin", "lessc")}),
+    'static_precompiler.compilers.Stylus',
 )
-
-COMPRESS_PRECOMPILERS = (
-('text/less', 'lessc {infile} {outfile}'),
-)
-INTERNAL_IPS = ('127.0.0.1',) # enables local compiling
-COMPRESS_ENABLED = True # defaults to opposite of DEBUG
-COMPRESS_OFFLINE = True # allow pre-compression of files
+STATIC_PRECOMPILER_ROOT = os.path.join(BASE_DIR,"grapeSite", "static")
 
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
