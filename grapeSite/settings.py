@@ -112,6 +112,8 @@ STATIC_URL = '/static/'
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 STATIC_ROOT = 'staticfiles'
 
+STATIC_PRECOMPILER_ROOT = os.path.join(BASE_DIR, "grapeSite","static")
+
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "grapeSite","media")
