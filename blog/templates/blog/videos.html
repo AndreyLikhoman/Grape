@@ -1,0 +1,47 @@
+{% extends "blog/Base.html" %}
+
+{% block content %}
+<div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+
+         
+
+      <div class="row">    
+            <br>
+            <div class="col-md-2 col-sm-3 text-center">
+              <img src="/media/{{ media.image }}" style="width:100px;height:100px" class="img-circle">
+            </div>
+            <div class="col-md-12 col-sm-12">
+          
+              <h3>{{ media.name }}</h3>
+              
+              <br><br>
+            </div>
+          </div>
+          <hr>
+          
+            {% for video in videos %}               
+<div>
+<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+      poster="/media/{{video.preview}}"
+      data-setup="{}">
+    <source src="/media/{{video.video}}" type='video/mp4' />
+   
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+  </video>
+</div>
+
+  {% endfor%} 
+        
+          
+        </div>
+      </div>
+                                                                                       
+ 
+   	</div><!--/col-12-->
+  </div>
+  {% endblock %}

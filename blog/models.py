@@ -144,6 +144,7 @@ class Galery(models.Model):
     metadesc = models.CharField(max_length=250, blank=True, verbose_name="Мета описание")
     slug = models.CharField(max_length=250, blank=True, verbose_name="Урл")
     parent = models.ForeignKey('self', blank=True, null=True, verbose_name="Родительская категория")
+    category = models.ForeignKey(Category, blank=True, related_name="c11", null=True, verbose_name="Категория")
     post = models.ForeignKey(Post, blank=True, related_name="c8", null=True, verbose_name="Статья")
     published = models.BooleanField(verbose_name="Опубликован", default=0)
     ordering = models.IntegerField(verbose_name="Порядок сортировки", default=0, blank=True, null=True)
@@ -232,3 +233,5 @@ class Video(models.Model):
     class Meta:
         verbose_name_plural = "Видео"
         verbose_name = "Видео"
+
+

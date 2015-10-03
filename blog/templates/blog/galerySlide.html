@@ -1,0 +1,42 @@
+{% extends "blog/Base.html" %}
+
+{% block content %}
+<div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+
+         
+
+      <div class="row">    
+            <br>
+            <div class="col-md-2 col-sm-3 text-center">
+              <img src="/media/{{ galery.image }}" style="width:100px;height:100px" class="img-circle">
+            </div>
+            <div class="col-md-12 col-sm-12">
+          
+              <h3>{{ galery.name }}</h3>
+              
+              <br><br>
+            </div>
+          </div>
+          <hr>
+          
+        
+        <div>
+          {% for image in images %}
+      <img style="width: 100px" src="/media/{{ image.image }}">
+          {% endfor%}    
+        </div>
+          
+        
+          
+        </div>
+      </div>
+                                                                                       
+ 
+   	</div><!--/col-12-->
+  </div>
+  {% endblock %}

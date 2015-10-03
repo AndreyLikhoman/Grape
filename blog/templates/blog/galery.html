@@ -1,0 +1,34 @@
+{% extends "blog/Base.html" %}
+
+{% block content %}
+<div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+           			 
+      {% for galery in galeries %}
+         
+
+      <div class="row">    
+            <br>
+            <div class="col-md-2 col-sm-3 text-center">
+              <a class="story-img" href="{% url "blog.views.galery_detail" url=galery.slug  %}"><img src="/media/{{ galery.image }}" style="width:100px;height:100px" class="img-circle">
+               <h3>{{ galery.name }}</h3>
+              </a>
+            </div>
+          </div>
+          <hr>
+          
+          {% endfor %}
+          
+        
+          
+        </div>
+      </div>
+                                                                                       
+ 
+   	</div><!--/col-12-->
+  </div>
+  {% endblock %}

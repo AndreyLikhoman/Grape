@@ -80,9 +80,15 @@ class MediaAdmin(admin.ModelAdmin):
     list_filter = ('parent', 'published')
     inlines = [Videoline,]
 
-   
+
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ('name', 'post', 'media')
+    list_filter = ('post', 'media')
+        
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Tags, TagsAdmin)
 admin.site.register(Galery, GaleryAdmin)
 admin.site.register(Media, MediaAdmin)
+admin.site.register(Video, VideoAdmin)
