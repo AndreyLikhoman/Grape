@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from . import views
+from . import views, registration
 
 urlpatterns = [
     url(r'^$', views.home_page, name='home_page'),
@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^media/(?P<url>[\w -]+)/$', views.return_videos, name='return_videos'),
     url(r'^(?P<category>[\w -]+)/(?P<url>[\w -]+)/$', views.post_detail, name='post_detail'),
     url(r'^(?P<url>[\w -]+)/$', views.category_detail, name='category_detail'),
+    url(r'^accounts/login/$',  registration.login),
+    url(r'^accounts/logout/$', registration.logout),
 ]
