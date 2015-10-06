@@ -1,17 +1,17 @@
 from django.contrib import auth
-
+from django.http import *
 def login(request):
-    username = request.POST['email']
+    email = request.POST['email']
     password = request.POST['password']
     user = auth.authenticate(email=email, password=password)
     if user is not None and user.is_active:
         # Правильный пароль и пользователь "активен"
         auth.login(request, user)
         # Перенаправление на "правильную" страницу
-        return HttpResponseRedirect("/account/loggedin/", template_name ='blog/account/registration.html')
+        return HttpResponseRedirect("/account/loggedin/")
     else:
         # Отображение страницы с ошибкой
-        return HttpResponseRedirect("/account/invalid/", template_name ='blog/account/registration.html')
+        return HttpResponseRedirect("/account/invalid/")
 
 
 
