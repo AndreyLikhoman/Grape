@@ -98,9 +98,10 @@
     <p class="error">Сожалеем, вы неправильно ввели логин или пароль</p>
   {% endif %}
 
-  <form action='accounts/login/' method='post'>{% csrf_token %}
-    <label for="email">Email:</label>
-    <input type="email" name="email" value="" id="email">
+  <form action='personal/' method='post'>
+    {% csrf_token %}
+    <label for="username">username:</label>
+    <input type="text" name="username" value="" id="username">
     <label for="password">Пароль:</label>
     <input type="password" name="password" value="" id="password">
 
