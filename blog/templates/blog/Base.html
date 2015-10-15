@@ -50,6 +50,7 @@
       </ul>
       {% if user.is_authenticated %}
         <p>Добро пожаловать. Вы зашли как  {{ user.username }}. Спасибо, что не забываете нас.</p>
+        <a href="{% url "blog.registration.logout" %}">Выйти из аккаунта</a>
       {% else %}
         <p>Добро пожаловать, незнакомец. Кто вы?</p>
       {% endif %}

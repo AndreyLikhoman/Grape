@@ -4,7 +4,7 @@ from . import views, registration
 urlpatterns = [
     url(r'^$', views.home_page, name='home_page'),
     url(r'^personal/$',  registration.login , name="login"),
-    url(r'^personal/(?P<id>[\w -]+)^$', registration.is_true, name='is_true'),
+    url(r'^personal/(?P<id>[\w -]+)/$', registration.is_true, name='is_true'),
     url(r'/fff/^$', registration.is_false, name='is_false'),
     url(r'^galereya/$', views.return_galeries, name='return_galeries'),
     url(r'^galereya/(?P<url>[\w -]+)/$', views.galery_detail, name='galery_detail'),
